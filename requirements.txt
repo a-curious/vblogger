@@ -1,0 +1,8 @@
+imageio[ffmpeg] 
+pillow
+moviepy==1.0.3
+opencv-python 
+piexif 
+imagehash 
+numpy
+gTTS
