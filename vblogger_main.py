@@ -4,18 +4,22 @@ from composer import build_video
 
 if __name__ == "__main__":
     testing = False
-    # folder = "D:\\projects\\AI_Projects\\vblog_creator\\code\\images"
-    # title="Table Rocks Lost City",
-    # subtitle="July 26, 2025"
-    # final_file = "tableRocks20250726.mp4"
 
-    folder = "D:\\projects\\AI_Projects\\vblog_creator\\code\\20250413-17_Wuhan"
-    title="Unforgettable Wuhan"
-    subtitle="April, 2025"
-    final_file = "wuhan.mp4"
+    folder = r"D:\projects\AI_Projects\vblog_creator\code\images"
+    title="Table Rocks Lost City"
+    subtitle="July 26, 2025"
+    final_file = "Table_Rocks_20250726.mp4"
+    music = "Summer.m4a"
+
+    # folder = r"D:\projects\AI_Projects\vblog_creator\code\20250413-17_Wuhan"
+    # title="Unforgettable Wuhan"
+    # subtitle="April, 2025"
+    # final_file = "wuhan.mp4"
+    # music = "Summer.m4a"
     
     if testing:
-        folder = "D:\\projects\\AI_Projects\\vblog_creator\\code\\img"
+        folder = r"D:\projects\AI_Projects\vblog_creator\code\temp"
+        final_file = "test.mp4"
     
     segments = process_media(folder)
     totalCnt = 1
@@ -27,8 +31,8 @@ if __name__ == "__main__":
     print(f"\n--- {totalCnt} ---")
 
     if testing:
-        build_video(segments, "tableRocks_short.mp4", "Summer.m4a")
+        build_video(segments, final_file, title, subtitle, music)
     else:
-        build_video(segments, final_file, title, subtitle, "Summer.m4a")
+        build_video(segments, final_file, title, subtitle, music)
     
 

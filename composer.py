@@ -15,7 +15,7 @@ from moviepy.editor import (
 def create_media_clips(segments):
     media_clips = []
     for i, segment in enumerate(segments):
-        print(f"\n--- Adding {i+1} ---")
+        # print(f"\n--- Adding {i+1} ---")
         for item in segment:
             vfile = item['file']
             fname = os.path.basename(vfile)
@@ -28,7 +28,7 @@ def create_media_clips(segments):
                 clip = VideoFileClip(vfile)
                 needPad = if_need_padding(vfile)
                 if (needPad):                    
-                    print("--- Padding  ---")
+                    print("--- Padding {vfile} ---")
                     correct_width = int(clip.h * 9 / 16)  # DAR 9:16
                     clip = clip.resize(newsize=(correct_width, clip.h))              
                     clip = pad_video(clip)                
