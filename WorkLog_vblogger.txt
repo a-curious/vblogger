@@ -1,0 +1,66 @@
+[TODO]
+* remove black margins in table rocks video
+* user order instead of based on timestamp (or fix the timestamp)
+* automatically adjust picture sizes --> debating if preprocessing or programmatically
+	o normalize the size of picture and videos (Command: /drives/d/projects/tools/ffmpeg-7.1.1-essentials_build/bin/ffmpeg.exe -i TheRiskTakers.mp4 -vf scale=1080:1920:flags=lanczos output.mp4)
+* collect more music pieces (pixabay)
+* support more options for subtitles
+* parametrize music, title, color etc.
+* add special effects when transitioning
+* limit video length to 10 min, break down if needed
+* automatically add marking/annotation of each frame
+* build interface like picassa 
+	o order by timeline
+	o thumbnail view
+	o select and generate
+* use AI to detect the location, search for human readable name, and add subtitles
+* use AI to detect people, actions, emotions etc.
+* use AI to change face
+
+[BUG]
+* .heic and .heif pictures all missing --> GPT function not working well. Manually saved the pictures. Considering a pre-processing step.
+* some pictures mistakenly narrowed (fixed by using __ which is not optimal)
+* timestamp order not correct
+
+
+20250803
+* Enlarged TheRiskTakers.mps to 1080x 
+	Command: /drives/d/projects/tools/ffmpeg-7.1.1-essentials_build/bin/ffmpeg.exe -i TheRiskTakers.mp4 -vf scale=1080:1920:flags=lanczos output.mp4
+* Got Red River Vally from https://pixabay.com/music/, used for "Harriman State Park Three Reservoirs 20250803"
+* https://archive.org/details/carpenters-the-singles_202303/Carpenters+-+The+Singles/10++For+All+We+Know.mp3
+
+20250227: 
+[TASK]
+1. asked ChatGPT to provide code
+2. create venv and activate it
+3. create a requirements.txt and run pip install -r requirements.txt
+4. install ImageMagick (used by TextClip)
+
+[BLOCKER]
+* aspect ratio 
+* Reason: iPhone internally has rotation aspect ratio (checking rotation does not help)
+[FIX]
+1. ffprobe -v error -select_streams v:0 -show_entries stream=width,height,display_aspect_ratio sample.mp4
+	width=1920
+	height=1080
+	display_aspect_ratio=9:16
+2. ffmpeg -i sample.mp4 -vf "scale=ih*9/16:ih,setdar=9/16" -c:a copy output_fixed.mp4
+
+Downloaded to: D:\projects\tools\ffmpeg-7.1.1-essentials_build\bin
+
+
+20250227: 
+[PLANNING]
+1. There will be many photos to sift through.
+2. Organize them according to the timeline and local information to provide context for your reference.
+3. You may want to create several vblogs with different themes.
+4. Make suggestions, such as:
+* Personal theme
+* Tourist attraction theme
+* Atmosphere theme
+5. Add captions
+6. Add music
+
+
+[github PAT]
+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
