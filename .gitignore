@@ -1,0 +1,68 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# IDE
+.vscode/*
+!.vscode/launch.json
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Project specific
+assets/output/*.mp4
+assets/output/*.avi
+assets/output/*.mov
+assets/output/*.mkv
+temp/
+*.log
+debug_config_loader.py
+debug_menu.py
+debug_scripts/
+
+# Keep music and input folders but ignore large files
+assets/music/*.m4a
+assets/music/*.mp3
+assets/music/*.wav
+assets/input/images/*
+assets/input/videos/*
+assets/input/0803/*
+!assets/music/.gitkeep
+!assets/input/images/.gitkeep
+!assets/input/videos/.gitkeep
+!assets/input/0803/.gitkeep 

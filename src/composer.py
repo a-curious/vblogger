@@ -1,4 +1,6 @@
 import os
+import sys
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'utils'))
 from formatHelper import filename_to_subtitle, create_subtitled_clip, PHOTO_DURATION, create_cover_clip
 from handleAspectRatio import pad_video, resize_and_pad, if_need_padding
 from moviepy.audio.fx.all import audio_loop
@@ -44,7 +46,7 @@ def build_video(segments, output_file, title, subtitle, music_file=None):
     
     back_cover = create_cover_clip(
        title="Welcome back!",
-        subtitle="See you in the fall",
+        subtitle="See you soon",
         duration=3  # seconds
     )
 
