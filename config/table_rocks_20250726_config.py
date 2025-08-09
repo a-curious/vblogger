@@ -4,9 +4,9 @@ Configuration for the Table Rocks Lost City video project.
 """
 
 # Input/Output Paths
-INPUT_FOLDER = r"assets\input\images"
+INPUT_FOLDER = r"assets\input\TableRocks_0726"
 OUTPUT_FILE = r"assets\output\Table_Rocks_20250726.mp4"
-MUSIC_FILE = r"assets\music\Summer.m4a"
+MUSIC_FILE = r"assets\music\sing.mp3"
 
 # Video Content
 TITLE = "Table Rocks Lost City"

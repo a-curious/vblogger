@@ -1,8 +1,8 @@
 import os
 import sys
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'utils'))
-from formatHelper import filename_to_subtitle, create_subtitled_clip, PHOTO_DURATION, create_cover_clip
-from handleAspectRatio import pad_video, resize_and_pad, if_need_padding
+from utils.formatHelper import filename_to_subtitle, create_subtitled_clip, PHOTO_DURATION, create_cover_clip
+from utils.handleAspectRatio import fit_clip_to_size
 from moviepy.audio.fx.all import audio_loop
 from moviepy.editor import (
     VideoFileClip, 
@@ -23,17 +23,12 @@ def create_media_clips(segments):
             fname = os.path.basename(vfile)
             subtitle = filename_to_subtitle(fname)
             if item['type'] == "photo":
-                clip = ImageClip(vfile).set_duration(PHOTO_DURATION)
-                clip = resize_and_pad(clip)                
+                clip = ImageClip(vfile).set_duration(PHOTO_DURATION)                 
+                clip = fit_clip_to_size(clip, target_size=(1920, 1080), bg_color=(0,128,128))
                 clip = create_subtitled_clip(clip, subtitle, PHOTO_DURATION)
             elif item['type'] == "video":
                 clip = VideoFileClip(vfile)
-                needPad = if_need_padding(vfile)
-                if (needPad):                    
-                    print("--- Padding {vfile} ---")
-                    correct_width = int(clip.h * 9 / 16)  # DAR 9:16
-                    clip = clip.resize(newsize=(correct_width, clip.h))              
-                    clip = pad_video(clip)                
+                clip = fit_clip_to_size(clip, target_size=(1920, 1080), bg_color=(0,128,128))
                 clip = create_subtitled_clip(clip, subtitle, clip.duration)
             media_clips.append(clip)
     return media_clips

@@ -1,0 +1,11 @@
+* Download Cursor
+* Mac: Download Homebrew then install git: https://brew.sh/
+	$/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+	$brew install git
+* From Cursor, clone vblogger project from repo
+* Download Python: version 3.13.6, install it
+* Set up venv, and resolve dependencies
+* Copy over files for input/output
+* RUN
+
+

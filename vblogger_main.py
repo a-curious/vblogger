@@ -11,8 +11,8 @@ import argparse
 # Add the src directory to the Python path
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'src'))
 
-from pixPicker import process_media
-from composer import build_video
+from src.pixPicker import process_media
+from src.composer import build_video
 from config.config_loader import load_config, list_available_configs, validate_config
 
 
@@ -48,16 +48,18 @@ def main():
     
     try:
         # Load configuration
-        print(f"Loading configuration: {args.config}")
-        config = load_config(args.config)
+        if args.testing:
+            print(f"Overriding configuration from {args.config} to temp_config")
+            config = load_config("temp_config")
+            config['TESTING_MODE'] = True
+            print("Running in testing mode")
+        else:
+            print(f"Loading configuration from {args.config}")
+            config = load_config(args.config)
         
         # Validate configuration
         validate_config(config)
         
-        # Override testing mode if specified
-        if args.testing:
-            config['TESTING_MODE'] = True
-            print("Running in testing mode")
         
         # Extract parameters from config
         folder = config['INPUT_FOLDER']

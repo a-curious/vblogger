@@ -2,11 +2,20 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Python Debugger: Current File",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal"
+        },
+        {
             "name": "Debug - List Configs",
             "type": "python",
             "request": "launch",
             "program": "${workspaceFolder}/vblogger_main.py",
-            "args": ["--list-configs"],
+            "args": [
+                "--list-configs"
+            ],
             "console": "integratedTerminal",
             "cwd": "${workspaceFolder}",
             "env": {
@@ -18,7 +27,10 @@
             "type": "python",
             "request": "launch",
             "program": "${workspaceFolder}/vblogger_main.py",
-            "args": ["--config", "table_rocks_config"],
+            "args": [
+                "--config",
+                "table_rocks_20250726_config"
+            ],
             "console": "integratedTerminal",
             "cwd": "${workspaceFolder}",
             "env": {
@@ -30,7 +42,10 @@
             "type": "python",
             "request": "launch",
             "program": "${workspaceFolder}/vblogger_main.py",
-            "args": ["--config", "harriman_20250803_config"],
+            "args": [
+                "--config",
+                "harriman_20250803_config"
+            ],
             "console": "integratedTerminal",
             "cwd": "${workspaceFolder}",
             "env": {
@@ -42,7 +57,11 @@
             "type": "python",
             "request": "launch",
             "program": "${workspaceFolder}/vblogger_main.py",
-            "args": ["--config", "table_rocks_config", "--testing"],
+            "args": [
+                "--config",
+                "table_rocks_config",
+                "--testing"
+            ],
             "console": "integratedTerminal",
             "cwd": "${workspaceFolder}",
             "env": {
@@ -72,4 +91,4 @@
             }
         }
     ]
-} 
+}
